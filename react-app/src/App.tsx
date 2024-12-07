@@ -1,7 +1,13 @@
-import Card from './components/Card';
+import Card, { CardBody }from './components/Card';
 
 function App() {
-  return <Card body={"Hola props"} />
+  return (
+    <>
+      <Card>
+        <CardBody title='asdf' text='texto'/>
+      </Card>
+    </>
+  );
 }
 
 export default App;
