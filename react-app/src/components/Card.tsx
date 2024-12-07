@@ -14,7 +14,7 @@ function Card(props: Props) {
       }}
     >
       <div className="card-body">
-        {children}
+        { children }
       </div>
     </div>
   )
