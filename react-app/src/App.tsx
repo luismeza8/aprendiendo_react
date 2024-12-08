@@ -2,7 +2,7 @@ import Card, { CardBody }from './components/Card';
 import List from './components/List';
 
 function App() {
-  const list = ['Goku', 'Midoriya', 'Luffy', 'Killua']
+  const list: string[] = ['Goku', 'Killua']
 
   const handleSelect = (elemento: string) => {
     console.log('imprimiendo ' + elemento)
@@ -12,7 +12,7 @@ function App() {
     <>
       <Card>
         <CardBody title='asdf' text='texto'/>
-        <List data={ list } onSelect={handleSelect} />
+        {list.length ? <List data={ list } onSelect={handleSelect} /> : 'no hay contenido'}       
       </Card>
     </>
   );
