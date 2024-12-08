@@ -4,25 +4,30 @@ import Boton from './components/Boton';
 import { useState } from 'react';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [listMinion, setListMinion] = useState(['Goku', 'Killua']);
 
-  const list: string[] = ['Goku', 'Killua']
+  const handleButtonAgregarClick = () => {
+    setListMinion([...listMinion, 'Minion'])
+  }
+
+  const handleButtonEliminarClick = () => {
+    setListMinion(listMinion.slice(0, -1))
+  }
 
   const handleSelect = (elemento: string) => {
     console.log('imprimiendo ' + elemento)
   };
 
-  const handleButtonClick = () => {
-    setIsLoading(!isLoading)
-  }
-
   return (
     <>
       <Card>
-        <CardBody title='asdf' text='texto'/>
-        {list.length ? <List data={ list } onSelect={handleSelect} /> : 'no hay contenido'}       
-        <Boton onClick={handleButtonClick} isLoading={isLoading}>
-          Hola mundo
+        <CardBody title='Minions' />
+        {listMinion.length ? <List data={ listMinion } onSelect={handleSelect} /> : 'no hay contenido'}       
+        <Boton onClick={handleButtonAgregarClick}>
+          Agregar
+        </Boton>
+        <Boton onClick={handleButtonEliminarClick}>
+          Eliminar
         </Boton>
       </Card>
     </>
